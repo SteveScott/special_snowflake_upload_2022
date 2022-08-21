@@ -1,0 +1,220 @@
+Column	Description
+Handle	
+Handles are unique names for each product. They can contain letters, dashes, and numbers, but no spaces, accents, or other characters, including periods. Handles are used in the URL for each product.
+
+For example, the handle for a "Women's Snowboard" should be womens-snowboard, and the product's URL would be https://yourstore.myshopify.com/products/womens-snowboard.
+
+Every line in the CSV file that starts with a different handle is treated as a new product. To add multiple images to a product, you must add multiple lines with the same handle.
+
+Title	
+The title of your product. For example, Women's Snowboard.
+
+Body (HTML)	
+The description of the product in HTML format.
+
+Learn more about how overwriting existing products affects the data in this column.
+
+Vendor	
+The name of the vendor for your product. For example, John's Apparel.
+
+Values must be at least two characters long.
+
+Learn more about how overwriting existing products affects the data in this column.
+
+Standardized product type	
+A label that describes the type of product. This label must be taken from the predefined standardized list of product types.
+
+You can input the standardized product type in either of the following ways:
+
+using the full path from the Shopify Product Taxonomy, for example Home & Garden > Linens & Bedding > Bedding > Bed Sheets
+using the numerical ID, for example 371
+Learn more about adding a standardized product type
+
+Learn more about how overwriting existing products affects the data in this column.
+
+Custom product type	
+A custom label that describes the category of a product. This label doesn't need to conform to any predefined format.
+
+Learn more about adding a custom product type
+
+Learn more about how overwriting existing products affects the data in this column.
+
+Tags	
+A comma-separated list of tags used to tag the product. Most spreadsheet applications automatically add quotes around the tags for you. If you use a plain text editor, then you need to manually add the quotes. For example, "tag1, tag2, tag3".
+
+Learn more about how overwriting existing products affects the data in this column.
+
+Published	
+Indicates whether a product is published on your online store. Valid values are TRUE if the product is published on your online store, or FALSE if the product is not available on your online store.
+
+Option1 Name	
+If a product has an option, then enter its name. For example, Color.
+
+If a product has only one option, then this value should be Title.
+
+Option1 Value	
+Caution: Changing data in this column deletes existing variant IDs values, and creates new variant IDs. Any change to variant ID values can break third-party dependencies on variant IDs.
+
+If a product has an option, then enter its value. For example, Black.
+
+If a product has only one option, then this value should be Default Title.
+
+Option2 Name	
+If a product has a second option, then enter its name. For example, Size.
+
+Learn more about how overwriting existing products affects the data in this column.
+
+Option2 Value	
+Caution: Changing data in this column deletes existing variant IDs values, and creates new variant IDs. Any change to variant ID values can break third-party dependencies on variant IDs.
+
+If a product has a second option, then enter its value. For example, Large.
+
+Learn more about how overwriting existing products affects the data in this column.
+
+Option3 Name	
+If a product has a third option, then enter its name.
+
+Learn more about how overwriting existing products affects the data in this column.
+
+Option3 Value	
+Caution: Changing data in this column deletes existing variant IDs values, and creates new variant IDs. Any change to variant ID values can break third-party dependencies on variant IDs.
+
+If a product has a third option, then enter its value.
+
+Learn more about how overwriting existing products affects the data in this column.
+
+Variant SKU	
+The SKU of the product or variant. This is used to track inventory with inventory tracking services.
+
+This field can't be left blank if you're using a custom fulfillment service .
+
+Learn more about how overwriting existing products affects the data in this column.
+
+Variant Grams	
+The weight of the product or variant in grams. Don't specify a unit of measurement or use decimals. For example, for a weight of 5.125 kg, enter 5125.
+
+Shopify always imports and exports the weight in grams, even if you specify a different unit. You must use accurate weights if you intend to offer carrier-calculated shipping or use a third-party fulfillment service.
+
+Variant Inventory Tracker	
+Include your inventory tracking for this variant or product. Valid values include shopify, shipwire, amazon_marketplace_web, or blank if inventory isn't tracked.
+
+If the existing inventory tracking options are removed, then inventory is no longer tracked.
+
+Learn more about how overwriting existing products affects the data in this column.
+
+Variant Inventory Qty	
+The number of items you have in stock of this product or variant. This column is only used for Shopify stores that have a single location.
+
+Note: This column is only available for stores that have only one location. If your store manages inventory at multiple locations, then this column isn't included. If you want to import or export inventory quantities, then use the inventory CSV file.
+
+Learn more about how overwriting existing products affects the data in this column.
+
+Variant Inventory Policy	
+How to handle orders when the inventory level for this product or variant has reached zero. Variants with a deny inventory policy can't be purchased after their inventory level reaches zero. Variants with a continue inventory policy can be purchased after their inventory level reaches zero, allowing for negative inventory levels.
+
+Variant Fulfillment Service	
+The product or variant fulfillment service used. The following are the valid values for this column:
+
+manual
+shipwire
+webgistix
+amazon_marketplace_web
+If you use a custom fulfillment service, then you can add the name of the service in this column. For the custom name, use only lowercase letters. Spaces aren't allowed and you must replace them with a dash (-). Periods and other special characters are removed. For example, if "Joan's Fulfillment" is your fulfillment service's name, enter joans-fulfillment in the CSV file.
+
+You must have a custom fulfillment service set up in your Shopify admin before you can add the name of the service in this column.
+
+Variant Price	
+The price of the product or variant. Only include the price and don't include any currency symbols. For example, 9.99.
+
+Variant Compare at Price	
+The "Compare at Price" of the product or variant. Only include the price and don't include any currency symbols. For example, 9.99.
+
+Learn more about how overwriting existing products affects the data in this column.
+
+Variant Requires Shipping	
+The option to require shipping. Valid values are TRUE or FALSE.
+
+Variant Taxable	
+Apply taxes to this variant. Valid values are TRUE or FALSE.
+
+Variant Barcode	
+The barcode, ISBN, or UPC of the product.
+
+Learn more about how overwriting existing products affects the data in this column.
+
+Image Src	
+Enter the URL for the product image. Shopify downloads the images during the import and re-uploads them into your store. These images aren't variant-specific. The variant image column is where you specify variant images.
+
+You can't change the image file name after that image has been uploaded to your store. Don't upload images that have _thumb, _small, or _medium suffixes in their names.
+
+Learn more about how overwriting existing products affects the data in this column.
+
+Image Position	
+Enter the number that represents the order in which you want the image to appear on the product's page. The images appears in order from smallest to largest starting from an image position value of 1. For example, if you want the image to appear first for that product, then enter 1.
+
+Learn more about how overwriting existing products affects the data in this column.
+
+Image Alt Text	
+Alt (alternate) text describes an image and is an important part of a product description. If an image can't load for any reason, then alt text is shown instead. It's also used by assistive technology to describe an image to a customer who's visually impaired. Including alt text will boost your website's SEO. Keep your alt text brief and descriptive. The maximum length is 512 characters, but the optimal length is 125 characters or fewer.
+
+Learn more about how overwriting existing products affects the data in this column.
+
+Gift Card	
+Indicates whether the product is a gift card. Valid values are TRUE or FALSE. The addition of this column also allows you to edit other gift card details, such as the Body or Tags columns, and then import these changes. A gift card can only be created and activated in the Shopify admin. You can't create a gift card through a product CSV file import.
+
+Learn more about how overwriting existing products affects the data in this column.
+
+SEO Title	
+The SEO Title is found on a product's details page under the Search engine listing preview header in the Page title field. The SEO Title is alphanumeric and can include up to 70 characters. If you leave this column blank when you import a product, then the value in the Title column is entered into the Page title field on the product's details page.
+
+Learn more about how overwriting existing products affects the data in this column.
+
+SEO Description	
+The SEO description is also found on a product's details page under the Search engine listing preview header in the Description. The SEO description is alphanumeric and can include up to 320 characters. If you leave this column blank when you import a product, then the value in the Body (HTML) column is entered into the Description field on the product's details page.
+
+Learn more about how overwriting existing products affects the data in this column.
+
+Google Product Category	
+If you currently use a Google product category, you can use it as your Shopify standardized product type. You can use the standardized product type, the Google Product Category, or both. Provide the most specific category possible for each item.
+
+The Google Product Category (GPC) (google_product_category) uses Google's product taxonomy.
+
+You can input the Google product category in either of the following ways:
+
+using the full taxonomy path, for example Apparel & Accessories > Clothing > Shirts & Tops
+using the numerical ID, for example 212
+Learn more about how overwriting existing products affects the data in this column.
+
+Google Shopping Metafields	
+The Google Shopping columns might be used by an app to synchronize products to the Google Merchant Center. However, Shopify's Google channel doesn't use these Metafields. You can ignore values in the columns that include Google Shopping in their names unless an app tells you to use them.
+
+Learn more about how overwriting existing products affects the data in this column.
+
+Variant Image	
+The URL for images of variants. If you add an URL, then it must be a functioning image URL.
+
+Learn more about how overwriting existing products affects the data in this column.
+
+Variant Weight Unit	
+Valid values are g, kg, lb, and oz.
+
+Variant Tax Code	
+Available to: Shopify Plus plan
+
+The Avalara code to apply taxes to this product. This field only applies when you import to or export from a store that uses the Shopify Plus plan's integration with Avalara AvaTax.
+
+When you create a CSV file by exporting products from a store that uses Avalara, the Variant Tax Code column is filled. If you import this CSV file into a store that doesn't have Avalara set up, then your import fails.
+
+Learn more about how overwriting existing products affects the data in this column.
+
+Cost per item	
+How much it costs you for the product or variant. Only include the cost. Don't include any currency symbols. For example, 9.99.
+
+Learn more about how overwriting existing products affects the data in this column.
+
+Status	
+Indicates whether a product is available to your customers. Valid values are:
+
+active: the product is active and ready to be sold
+draft: the product is a draft and needs to be completed
+archived: the product is archived and no longer available to sell
