@@ -14,9 +14,9 @@ class TestSnowflakes(TestCase):
         
     def test_rendered_filename(self):
         st = ShopifyTools()
-        assert st.get_rendering_filename('AAS-SGC-TMW-NIO.stl') == 'AAS-SGC-TMW-NIO.SilverTextured.jpg'
+        assert st.get_rendering_filename('AAS-SGC-TMW-NIO.stl') == 'AAS-SGC-TMW-NIO_SilverTextured.jpg'
         print(st.get_rendering_filename('AAS-SGC-TMW-NIO_2x.stl'))
-        assert st.get_rendering_filename('AAS-SGC-TMW-NIO_2x.stl') == 'AAS-SGC-TMW-NIO.ShapewaysWhite.jpg'
+        assert st.get_rendering_filename('AAS-SGC-TMW-NIO_2x.stl') == 'AAS-SGC-TMW-NIO_ShapewaysWhite.jpg'
 
     def test_rename_images(self):
         assert rename_images('AAS-SGC-TMW-NIO.stl_Shapeways White_.jpg') == None

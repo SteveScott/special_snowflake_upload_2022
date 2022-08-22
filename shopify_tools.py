@@ -40,17 +40,17 @@ class ShopifyTools:
 		is_2in = self.is_two_inch(snowflake)
 		seed = snowflake.split('.')[-2][:15]
 		if is_2in:
-			return RENDERINGS_PATH / f'{seed}.ShapewaysWhite.jpg'
+			return RENDERINGS_PATH / f'{seed}_ShapewaysWhite.jpg'
 		else:
-			return RENDERINGS_PATH / f'{seed}.SilverTextured.jpg'
+			return RENDERINGS_PATH / f'{seed}_SilverTextured.jpg'
 
 	def get_rendering_filename(self, stl_filename: str) -> str:
 		seed = stl_filename.split('.')[-2][:15]
 		is_2in = self.is_two_inch(stl_filename)
 		if is_2in:
-			return f'{seed}.ShapewaysWhite.jpg'
+			return f'{seed}_ShapewaysWhite.jpg'
 		else:
-			return f'{seed}.SilverTextured.jpg'
+			return f'{seed}_SilverTextured.jpg'
 
 
 	def create_one_inch_row(self, seed: str, img_url: str):
