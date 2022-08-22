@@ -40,7 +40,7 @@ def create_one_inch_row(seed: str, img_url: str):
            'Google Shopping / AdWords Labels':'',
            'Google Shopping / Condition':'',
            'Google Shopping / Custom Product':'',
-           'Google Shopping / Custom Label':'',
+           'Google Shopping / Custom Label 0':'',
            'Google Shopping / Custom Label 1':'',
            'Google Shopping / Custom Label 2':'',
            'Google Shopping / Custom Label 3':'',

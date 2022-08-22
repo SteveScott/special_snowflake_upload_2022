@@ -16,19 +16,19 @@ def rename_images(filename: str) -> str:
         first_part = period_split_list[0]
         material = first_part.split('_')[1]
         if material == 'Shapeways White':
-            return f"{seed}.ShapewaysWhite.jpg"
+            return f"{seed}_ShapewaysWhite.jpg"
         if material == 'Silver Textured':
-            return f'{seed}.SilverTextured.jpg'
+            return f'{seed}_SilverTextured.jpg'
 
     if len(period_split_list) == 3:
         if period_split_list[1][:6] == 'stl_Si':
-            return f"{seed}.SilverTextured.jpg"
+            return f"{seed}_SilverTextured.jpg"
         elif period_split_list[1][:6] == 'stl_Sw':
-            return f"{seed}.ShapewaysWhite.jpg"
+            return f"{seed}_ShapewaysWhite.jpg"
         elif period_split_list[2][:6] == 'stl_Sh':
             return None
         elif period_split_list[2][:6] == 'stl_Si':
-            return f'{seed}.SilverTextured.jpg'
+            return f'{seed}_SilverTextured.jpg'
 
 def main():
     snow_renders = os.listdir(RENDERINGS_PATH)
