@@ -3,8 +3,6 @@ from dotenv import load_dotenv
 from pathlib import Path
 import pandas as pd
 import logging
-import shopify_template
-
 load_dotenv()
 #get environment variables
 RENDERINGS_PATH=Path(os.getenv('RENDERINGS_PATH'))
@@ -13,14 +11,66 @@ BLOB_URL=os.getenv('BLOB_URL')
 ROOT=Path(os.getenv('ROOT'))
 class ShopifyTools:
 	def __init__(self):
-		pass
+		self.columns=['Handle',
+		'Title',
+		'Body (HTML)',
+		'Vendor',
+		'Standardized Product Type',
+		'Custom Product Type',
+		'Tags',
+		'Published',
+		'Option1 Name',
+		'Option1 Value',
+		'Option2 Name',
+		'Option2 Value',
+		'Option3 Name',
+		'Option3 Value',
+		'Variant SKU',
+		'Variant Grams',
+		'Variant Inventory Tracker',
+		'Variant Inventory Qty',
+		'Variant Inventory Policy',
+		'Variant Fulfillment Service',
+		'Variant Price',
+		'Variant Compare At Price',
+		'Variant Requires Shipping',
+		'Variant Taxable',
+		'Variant Barcode',
+		'Image Src',
+		'Image Position',
+		'Image Alt Text',
+		'Gift Card',
+		'SEO Title',
+		'SEO Description',
+		'Google Shopping',
+		'Google Product Category',
+		'Google Shopping / Gender',
+		'Google Shopping / Age Group',
+		'Google Shopping / MPN',
+		'Google Shopping / AdWords Grouping',
+		'Google Shopping / AdWords Labels',
+		'Google Shopping / Condition',
+		'Google Shopping / Custom Product',
+		'Google Shopping / Custom Label 0',
+		'Google Shopping / Custom Label 1',
+		'Google Shopping / Custom Label 2',
+		'Google Shopping / Custom Label 3',
+		'Google Shopping / Custom Label 4',
+		'Variant Image',
+		'Variant Weight Unit',
+		'Variant Tax Code',
+		'Cost per item',
+		'Price / International',
+		'Compare At Price / International',
+		'Status'
+		]
 
 	def main(self):
 		#set path to snowflakes
 		#list all snowflakes locally
 		snowflakes = os.listdir(STL_PATH)
 		#create an empty dataframe with fields and dtypes defined
-		export_df = pd.DataFrame(columns=shopify_template.columns)
+		export_df = pd.DataFrame(columns=self.columns)
 		for snowflake in snowflakes:
 			seed = snowflake[:15]
 			rendering_filename = self.get_rendering_filename(snowflake)
@@ -33,24 +83,22 @@ class ShopifyTools:
 				this_row = self.create_one_inch_row(seed, BLOB_URL + rendering_filename)
 			export_df = export_df.append(this_row, ignore_index=True)
 		export_df.to_csv(ROOT / 'upload_list.csv', index=False)
-		export_test = export_df[:6]
-		export_test.to_csv(ROOT / 'upload_test.csv')
 	
 	def get_rendering_path(self, snowflake: str) -> Path:
 		is_2in = self.is_two_inch(snowflake)
 		seed = snowflake.split('.')[-2][:15]
 		if is_2in:
-			return RENDERINGS_PATH / f'{seed}_ShapewaysWhite.jpg'
+			return RENDERINGS_PATH / f'{seed}.ShapewaysWhite.jpg'
 		else:
-			return RENDERINGS_PATH / f'{seed}_SilverTextured.jpg'
+			return RENDERINGS_PATH / f'{seed}.SilverTextured.jpg'
 
 	def get_rendering_filename(self, stl_filename: str) -> str:
 		seed = stl_filename.split('.')[-2][:15]
 		is_2in = self.is_two_inch(stl_filename)
 		if is_2in:
-			return f'{seed}_ShapewaysWhite.jpg'
+			return f'{seed}.ShapewaysWhite.jpg'
 		else:
-			return f'{seed}_SilverTextured.jpg'
+			return f'{seed}.SilverTextured.jpg'
 
 
 	def create_one_inch_row(self, seed: str, img_url: str):
@@ -80,13 +128,14 @@ class ShopifyTools:
 			'Variant Requires Shipping': 'TRUE',
 			'Variant Taxable': 'TRUE',
 			'Variant Barcode': '',
-			'Image Src': f"{img_url}",
+			'Image Src': f"'{img_url}'",
 			'Image Position': '',
 			'Image Alt Text': 'A silver snowflake pendant',
 			'Gift Card': 'FALSE',
 			'SEO Title': 'Special Snowflake Pendant. No two are alike',
 			'SEO Description': '',
-			'Google Shopping / Google Product Category': '',
+			'Google Shopping': '',
+			'Google Product Category': '',
 			'Google Shopping / Gender': '',
 			'Google Shopping / Age Group':'',
 			'Google Shopping / MPN':'',
@@ -99,7 +148,7 @@ class ShopifyTools:
 			'Google Shopping / Custom Label 2':'',
 			'Google Shopping / Custom Label 3':'',
 			'Google Shopping / Custom Label 4':'',
-			'Variant Image': f"{img_url}",
+			'Variant Image': f"'{img_url}'",
 			'Variant Weight Unit': 'g',
 			'Variant Tax Code': '',
 			'Cost per item': '40.00',
@@ -135,13 +184,14 @@ class ShopifyTools:
 			'Variant Requires Shipping': 'TRUE',
 			'Variant Taxable': 'TRUE',
 			'Variant Barcode': '',
-			'Image Src': f"{img_url}",
+			'Image Src': f"'{img_url}'",
 			'Image Position': '',
 			'Image Alt Text': 'A silver snowflake pendant',
 			'Gift Card': 'FALSE',
 			'SEO Title': 'Special Snowflake Ornament. No two are alike',
 			'SEO Description': '',
-			'Google Shopping / Google Product Category': '',
+			'Google Shopping': '',
+			'Google Product Category': '',
 			'Google Shopping / Gender': '',
 			'Google Shopping / Age Group':'',
 			'Google Shopping / MPN':'',
@@ -154,7 +204,7 @@ class ShopifyTools:
 			'Google Shopping / Custom Label 2':'',
 			'Google Shopping / Custom Label 3':'',
 			'Google Shopping / Custom Label 4':'',
-			'Variant Image': f"{img_url}",
+			'Variant Image': f"'{img_url}'",
 			'Variant Weight Unit': 'g',
 			'Variant Tax Code': '',
 			'Cost per item': '9.00',
