@@ -30,7 +30,7 @@ class AzureTools:
 		with open(full_path_to_file, 'rb') as data:
 			blob_client = self.container_client.upload_blob(name=local_file_name, data=data)
 		properties = blob_client.get_blob_properties()
-		print(properties)
+		#print(properties)
 
 	def check_image(self, filename):
 		blob_exists = False
